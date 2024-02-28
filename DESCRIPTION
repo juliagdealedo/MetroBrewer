@@ -1,19 +1,15 @@
-Package: MetBrewer
+Package: MetroBrewer
 Type: Package
-Title: Color Palettes Inspired by Works at the Metropolitan Museum of Art
-Version: 0.3.0
-Author: Blake Robert Mills
-Maintainer: Blake Robert Mills <blakerobertmills@gmail.com>
-Description: Palettes Inspired by Works at the Metropolitan Museum of Art in New York. Currently contains over 50 color schemes and checks for colorblind-friendliness of palettes. Colorblind accessibility checked using the '{colorblindcheck} package by Jakub Nowosad'<https://nowosad.github.io/colorblindcheck/>.
-Imports: 
-    ggplot2,
-    rlang,
-    ggstream,
-    cowplot,
-    glue, 
-    lifecycle,
-    graphics,
-    stats
+Title: Color Palettes Inspired by subway maps around the world
+Version: 0.1.0
+Authors@R: 
+  c(
+  person("Julia G.", "de Aledo", , "juliagdealedo@gmail.com", role = c("aut", "cph"),
+           comment = c(ORCID = "0000-0001-9065-9316")),
+  person("Ignacio", "Ramos-Gutierrez",, "ig.ramosgutierrez@gmail.com", role = c("aut", "cre", "cph"),
+    comment = c(ORCID = "0000-0002-8675-0114")),
+  )
+Description: Palettes Inspired by Metro maps
 License: CC0
 Encoding: UTF-8
 LazyData: true

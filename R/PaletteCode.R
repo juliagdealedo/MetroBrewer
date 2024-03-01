@@ -52,7 +52,7 @@
       c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
     ),
 
-    Istanbul-train = list(
+    Istanbul_train = list(
       c("#044c7e", "#91aba0", "#9d562a", "#f07c49",
         "#7b72b3", "#e57b7d"),
       c(1, 2, 3, 4, 5, 6)
@@ -91,7 +91,7 @@
       c(1, 2, 3, 4, 5)
       ),
 
-    Sydney-train = list(
+    Sydney_train = list(
       c("#f28f20", "#0198ce", "#de4926", "#005ba5",
         "#c2268d", "#456cab", "#6f818e", "#01954b",
         "#d22030"),
@@ -177,14 +177,6 @@ MetPalettes <- list(
 #' Use \code{\link{colorblind.friendly.met}} to check whether palettes are colorblind-friendly.
 #'
 #' @param palette_name Name of Palette. Choices are:
-#' \code{Archambault}, \code{Austria}, \code{Benedictus}, \code{Cassatt1}, \code{Cassatt2}, \code{Cross}, \code{Degas},
-#' \code{Demuth}, \code{Derain}, \code{Egypt}, \code{Gauguin}, \code{Greek}, \code{Hiroshige}, \code{Hokusai1},
-#' \code{Hokusai2}, \code{Hokusai3}, \code{Homer1}, \code{Homer2}, \code{Ingres}, \code{Isfahan1}, \code{Isfahan2},
-#' \code{Java}, \code{Johnson},\code{Juarez}, \code{Kandinsky}, \code{Klimt}, \code{Lakota}, \code{Manet},
-#' \code{Monet}, \code{Moreau}, \code{Morgenstern}, \code{Nattier}, \code{Navajo}, \code{NewKingdom}, \code{Nizami},
-#' \code{OKeeffe1}, \code{OKeeffe2}, \code{Paquin}, \code{Peru1}, \code{Peru2}, \code{Pillement}, \code{Pissaro},
-#' \code{Redon}, \code{Renoir}, \code{Signac}, \code{Tam}, \code{Tara}, \code{Thomas}, \code{Tiepolo}, \code{Troy},
-#' \code{Tsimshian}, \code{VanGogh1}, \code{VanGogh2}, \code{VanGogh3}, \code{Veronese}, and \code{Wissing}
 #' @param n Number of desired colors. If number of requested colors is beyond the scope of the palette,
 #' colors are automatically interpolated. If n is not provided, the length of the palette is used.
 #' @param type Either "continuous" or "discrete". Use continuous if you want to automatically
@@ -196,31 +188,31 @@ MetPalettes <- list(
 #' @param return_hex Default is FALSE. If TRUE, hex codes of colors will be returned in addition to the palette.
 #' @return A vector of colors.
 #' @examples
-#' met.brewer("VanGogh1")
+#' metro.brewer("Madrid")
 #'
-#' met.brewer("Greek", direction=-1)
+#' metro.brewer("London", direction=-1)
 #'
-#' met.brewer("Cassatt2", 4, override_order=TRUE)
+#' metro.brewer("Sydney", 4, override_order=TRUE)
 #'
 #' library(ggplot2)
 #' ggplot(data=iris, aes(x=Species, y=Petal.Length, fill=Species)) +
 #' geom_violin() +
-#' scale_fill_manual(values=met.brewer("Greek", 3))
+#' scale_fill_manual(values=metro.brewer("London", 3))
 #'
 #' ggplot(data=iris, aes(x=Sepal.Length, y=Sepal.Width, color=Species)) +
 #' geom_point(size=2) +
-#' scale_color_manual(values=met.brewer("Renoir", 3))
+#' scale_color_manual(values=metro.brewer("Barcelona", 3))
 #'
 #' ggplot(data=iris, aes(x=Species, y=Sepal.Width, color=Sepal.Width)) +
 #' geom_point(size=3) +
-#' scale_color_gradientn(colors=met.brewer("Isfahan1"))
+#' scale_color_gradientn(colors=metto.brewer("Istanbul"))
 #' @keywords colors
 #' @export
-met.brewer <- function(palette_name, n, type = c("discrete", "continuous"), direction = c(1, -1), override_order=FALSE, return_hex=FALSE) {
+metro.brewer <- function(palette_name, n, direction = c(1, -1), override_order=FALSE, return_hex=FALSE) {
 
   `%notin%` <- Negate(`%in%`)
 
-  palette <- MetPalettes[[palette_name]]
+  palette <- MetroPalettes[[palette_name]]
 
   if (is.null(palette)|is.numeric(palette_name)){
     stop("Palette does not exist.")
@@ -238,21 +230,21 @@ met.brewer <- function(palette_name, n, type = c("discrete", "continuous"), dire
     stop("Direction not valid. Please use 1 for standard palette or -1 for reversed palette.")
   }
 
-  if (missing(type)) {
-    if(n > length(palette[[1]])){type <- "continuous"}
+  # if (missing(type)) {
+    # if(n > length(palette[[1]])){type <- "continuous"}
     else{type <- "discrete"}
-  }
+  # }
 
-  type <- match.arg(type)
+  # type <- match.arg(type)
 
 
-  if (type == "discrete" && n > length(palette[[1]])) {
+  if ( n > length(palette[[1]])) {
     stop("Number of requested colors greater than what discrete palette can offer, \n use continuous instead.")
   }
 
-  continuous <-  if(direction==1){grDevices::colorRampPalette(palette[[1]])(n)
-  }else{
-    grDevices::colorRampPalette(rev(palette[[1]]))(n)}
+  # continuous <-  if(direction==1){grDevices::colorRampPalette(palette[[1]])(n)
+  # }else{
+  #   grDevices::colorRampPalette(rev(palette[[1]]))(n)}
 
   discrete <- if(direction==1 & override_order==FALSE){
     palette[[1]][which(palette[[2]] %in% c(1:n)==TRUE)]

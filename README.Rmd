@@ -16,28 +16,29 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Metro Brewer <img src="PaletteImages/logo.png" align="right" width="400"/>
+# Metro Brewer <img src="PaletteImages/logo.png" align="right" width="300"/>
 
 Palettes inspired by metro and train lines. Metro Brewer package is
 inspired on [`MetBrewer`](https://github.com/BlakeRMills/MetBrewer)
 package.
 
-# Content
 
-[Installation](#install-package)
+## Install Package
 
-[Palettes](#palettes)
-
-## Install Package {#install-package}
-
-```{r install metroviewer, eval=T}
+```{r load_dev , eval=T, echo=FALSE,include = FALSE}
 devtools::load_all()
 ```
 
-## Palettes {#palettes}
+```{r install metroviewer, eval=F, echo=TRUE}
+devtools::install_github("juliagdealedo/MetroViewer")
+library(MetroViewer)
+```
+
+## Palettes
 
 ```{r load cities CRAN, eval=T, echo=FALSE}
-cities <- names(MetroBrewer::MetroPalettes)
+cities <- names(MetroPalettes)
+cities <- sort(cities)
 ```
 
 ```{r get maps, echo=F}
@@ -62,10 +63,6 @@ if(!file.exists(cols)){
 }
 }
 
-  png("PaletteImages/palettes/blank.png", height = 80, width = 150, units="mm", res=300)
-  par(bg="transparent")
-  plot.new()
-  dev.off()
 ```
 ```{r get cols, echo=F}
 cols <- vector("character", length = length(cities))
@@ -74,13 +71,15 @@ for (city in cities){
 }
 
 ```
+## All palettes
+```{r all palettes, echo=F, eval=T, out.width="20%" }
+knitr::include_graphics(cols)
+```
 
-```{r plot map&col, echo=F, eval=T, out.width="50%", out.height="80%", }
+## Maps and their colours
+```{r plot map&col, echo=F, eval=T, out.width="50%", out.height="80%"}
 mix <- c(rbind(maps,cols))
 knitr::include_graphics(mix)
 
-
-
 ```
-
 

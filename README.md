@@ -21,6 +21,9 @@ This package was possible, inspired and forked from
 [`MetBrewer`](https://github.com/BlakeRMills/MetBrewer) package by Blake
 Robert Mills (thank you!).
 
+[![HitCount](https://hits.dwyl.com/juliagdealedo/MetroBrewer.svg?style=flat-square)](https://hits.dwyl.com/juliagdealedo/MetroBrewer)
+[![HitCount](https://hits.dwyl.com/juliagdealedo/MetroBrewer.svg?style=flat-square&show=unique)](https://hits.dwyl.com/juliagdealedo/MetroBrewer)
+
 ## Install Package
 
 ``` r

@@ -1,17 +1,17 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Metro Brewer <img src="PaletteImages/logo.png" align="right" width="300"/>
+# Metro Brewer <img src="PaletteImages/logo.png" align="right" width="270"/>
 
-This package compile palettes with the colors of metro and train lines
-from different cities of the world.
+🔉 Next stop… MetroBrewer! 🚉.
 
-Incorporate in your visualizations the distinctive colors of your
-favorite city’s metro into your graphs and other vizs! Metro lines,
-inherently distinct, offer significant utility in categorical
-visualizations. Moreover, the familiarity with the metro map facilitates
-quick and effortless identification of categories or factors, making the
-data interpretation process more intuitive.
+This package compiles metro and train lines color palettes from
+different cities around the world. Incorporate to your graphs and other
+visualizations the distinctive colors of your favorite city’s metro!
+Metro lines, inherently distinct, offer significant utility in
+categorical visualizations. Moreover, the familiarity with the metro map
+facilitates quick and effortless identification of categories or
+factors, making the data interpretation process more intuitive.
 
 MetroBrewer is a dynamic package, then additional suggestions are
 welcome. Let us know and we will add the colors of your city metro to
@@ -19,7 +19,7 @@ the package!
 
 This package was possible, inspired and forked from
 [`MetBrewer`](https://github.com/BlakeRMills/MetBrewer) package by Blake
-Robert Mills (Thank you!).
+Robert Mills (thank you!).
 
 ## Install Package
 

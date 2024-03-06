@@ -18,12 +18,22 @@ knitr::opts_chunk$set(
 
 # Metro Brewer <img src="PaletteImages/logo.png" align="right" width="300"/>
 
-Palettes inspired by metro and train lines. Metro Brewer package is
-inspired on [`MetBrewer`](https://github.com/BlakeRMills/MetBrewer)
-package by Blake Robert Mills.
-Palettes inspired by metro and train lines. Metro Brewer package is
-inspired on [`MetBrewer`](https://github.com/BlakeRMills/MetBrewer)
-package by Blake Robert Mills.
+This package compile palettes with the colors of metro and train lines from 
+different cities of the world.
+
+Incorporate in your visualizations the distinctive colors of your favorite city's metro 
+into your graphs and other vizs!
+Metro lines, inherently distinct, offer significant utility in categorical visualizations. 
+Moreover, the familiarity with the metro map facilitates quick and effortless identification 
+of categories or factors, making the data interpretation process more intuitive.
+
+MetroBrewer is a dynamic package, then additional suggestions are welcome. 
+Let us know and we will add the colors of your city metro to the package! 
+
+This package was possible, inspired and forked from 
+[`MetBrewer`](https://github.com/BlakeRMills/MetBrewer)
+package by Blake Robert Mills (Thank you!).
+
 
 ## Install Package
 
@@ -58,12 +68,8 @@ for (city in cities){
   height[city] <- dimension[1]
   width[city] <- dimension[2]
 }
-
-# save(height, width, file="dim.Rdata")
-# load("dim.RData")
 ratio <- height/width
 heigth_low <- 500/ratio
-
 ```
 
 ```{r create cols, echo=F, eval=T}
@@ -106,6 +112,9 @@ for (city in cities){
 
 ```
 ## All palettes
+Colors are arranged by the metro lines number.
+
+
 ```{r all palettes, echo=F, eval=T, out.width="20%" }
 knitr::include_graphics(cols_sq)
 ```

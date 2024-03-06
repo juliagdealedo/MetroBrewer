@@ -3,12 +3,23 @@
 
 # Metro Brewer <img src="PaletteImages/logo.png" align="right" width="300"/>
 
-Palettes inspired by metro and train lines. Metro Brewer package is
-inspired on [`MetBrewer`](https://github.com/BlakeRMills/MetBrewer)
-package by Blake Robert Mills. Palettes inspired by metro and train
-lines. Metro Brewer package is inspired on
+This package compile palettes with the colors of metro and train lines
+from different cities of the world.
+
+Incorporate in your visualizations the distinctive colors of your
+favorite city’s metro into your graphs and other vizs! Metro lines,
+inherently distinct, offer significant utility in categorical
+visualizations. Moreover, the familiarity with the metro map facilitates
+quick and effortless identification of categories or factors, making the
+data interpretation process more intuitive.
+
+MetroBrewer is a dynamic package, then additional suggestions are
+welcome. Let us know and we will add the colors of your city metro to
+the package!
+
+This package was possible, inspired and forked from
 [`MetBrewer`](https://github.com/BlakeRMills/MetBrewer) package by Blake
-Robert Mills.
+Robert Mills (Thank you!).
 
 ## Install Package
 
@@ -20,6 +31,8 @@ library(MetroBrewer)
 ## Palettes
 
 ## All palettes
+
+Colors are arranged by the metro lines number.
 
 <img src="PaletteImages/palettes/Barcelona_sq.png" width="20%" /><img src="PaletteImages/palettes/Beijing_sq.png" width="20%" /><img src="PaletteImages/palettes/Cairo_sq.png" width="20%" /><img src="PaletteImages/palettes/Caracas_sq.png" width="20%" /><img src="PaletteImages/palettes/Delhi_sq.png" width="20%" /><img src="PaletteImages/palettes/Hiroshima_sq.png" width="20%" /><img src="PaletteImages/palettes/HongKong_sq.png" width="20%" /><img src="PaletteImages/palettes/Istanbul_sq.png" width="20%" /><img src="PaletteImages/palettes/Istanbul_train_sq.png" width="20%" /><img src="PaletteImages/palettes/London_sq.png" width="20%" /><img src="PaletteImages/palettes/Madrid_sq.png" width="20%" /><img src="PaletteImages/palettes/Montreal_sq.png" width="20%" /><img src="PaletteImages/palettes/Paris_sq.png" width="20%" /><img src="PaletteImages/palettes/Rome_sq.png" width="20%" /><img src="PaletteImages/palettes/Sydney_sq.png" width="20%" /><img src="PaletteImages/palettes/Sydney_train_sq.png" width="20%" /><img src="PaletteImages/palettes/Vienna_sq.png" width="20%" />
 

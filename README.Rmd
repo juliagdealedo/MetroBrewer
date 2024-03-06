@@ -20,8 +20,10 @@ knitr::opts_chunk$set(
 
 Palettes inspired by metro and train lines. Metro Brewer package is
 inspired on [`MetBrewer`](https://github.com/BlakeRMills/MetBrewer)
-package.
-
+package by Blake Robert Mills.
+Palettes inspired by metro and train lines. Metro Brewer package is
+inspired on [`MetBrewer`](https://github.com/BlakeRMills/MetBrewer)
+package by Blake Robert Mills.
 
 ## Install Package
 
@@ -30,8 +32,8 @@ devtools::load_all()
 ```
 
 ```{r install metroviewer, eval=F, echo=TRUE}
-devtools::install_github("juliagdealedo/MetroViewer")
-library(MetroViewer)
+devtools::install_github("juliagdealedo/MetroBrewer")
+library(MetroBrewer)
 ```
 
 ## Palettes
@@ -43,27 +45,39 @@ cities <- sort(cities)
 
 ```{r get maps, echo=F}
 maps <- vector("character", length = length(cities))
+
+height <-NULL
+width <- NULL
+
 for (city in cities){
   city.un <-unique(stringr::word(city, 1, sep="_"))
   map.pos <- grep(city.un, list.files("PaletteImages"))
-
   maps[which(cities == city)] <- paste0("PaletteImages/", list.files("PaletteImages")[map.pos])
-  
+  if (file.exists(paste0("PaletteImages/palettes/", city, ".png"))) {next}
+  dimension <- as.matrix(dim(imager::load.image(maps[which(cities == city)])))
+  height[city] <- dimension[1]
+  width[city] <- dimension[2]
 }
+
+# save(height, width, file="dim.Rdata")
+# load("dim.RData")
+ratio <- height/width
+heigth_low <- 500/ratio
 
 ```
 
 ```{r create cols, echo=F, eval=T}
-for(i in seq_along(cities)){
-cols <- paste0("PaletteImages/palettes/", cities[i], ".png")
+cities_new <- cities[cities %in% names(heigth_low)]
+for(i in seq_along(cities_new)){
+cols <- paste0("PaletteImages/palettes/", cities_new[i], ".png")
 if(!file.exists(cols)){
-  png(cols, height = 150, width = 150, units="mm", res=300)
+  png(cols, height = heigth_low[i], width = 500, units="px")
   print.palette(metro.brewer(cities[i]))
   dev.off()
 }
 }
-
 ```
+
 ```{r get cols, echo=F}
 cols <- vector("character", length = length(cities))
 for (city in cities){
@@ -71,9 +85,29 @@ for (city in cities){
 }
 
 ```
+
+
+```{r create cols_square, echo=F, eval=T}
+for(i in seq_along(cities)){
+cols_sq <- paste0("PaletteImages/palettes/", cities[i], "_sq.png")
+if(!file.exists(cols_sq)){
+  png(cols_sq, height = 150, width = 150, units="mm", res=300)
+  print.palette(metro.brewer(cities[i]))
+  dev.off()
+}
+}
+```
+
+```{r get cols_square, echo=F}
+cols_sq <- vector("character", length = length(cities))
+for (city in cities){
+   cols_sq[which(cities == city)] <-  paste0("PaletteImages/palettes/", city, "_sq.png")
+}
+
+```
 ## All palettes
 ```{r all palettes, echo=F, eval=T, out.width="20%" }
-knitr::include_graphics(cols)
+knitr::include_graphics(cols_sq)
 ```
 
 ## Maps and their colours

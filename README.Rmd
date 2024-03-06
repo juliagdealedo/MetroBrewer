@@ -41,7 +41,7 @@ package by Blake Robert Mills (Thank you!).
 devtools::load_all()
 ```
 
-```{r install metroviewer, eval=F, echo=TRUE}
+```{r install metrobrewer, eval=F, echo=TRUE}
 devtools::install_github("juliagdealedo/MetroBrewer")
 library(MetroBrewer)
 ```
@@ -61,8 +61,8 @@ width <- NULL
 
 for (city in cities){
   city.un <-unique(stringr::word(city, 1, sep="_"))
-  map.pos <- grep(city.un, list.files("PaletteImages"))
-  maps[which(cities == city)] <- paste0("PaletteImages/", list.files("PaletteImages")[map.pos])
+  map.pos <- grep(city.un, list.files("PaletteImages/citymaps"))
+  maps[which(cities == city)] <- paste0("PaletteImages/citymaps/", list.files("PaletteImages/citymaps")[map.pos])
   if (file.exists(paste0("PaletteImages/palettes/", city, ".png"))) {next}
   dimension <- as.matrix(dim(imager::load.image(maps[which(cities == city)])))
   height[city] <- dimension[1]

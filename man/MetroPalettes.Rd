@@ -5,14 +5,13 @@
 \alias{MetroPalettes}
 \title{Complete list of palettes.}
 \format{
-An object of class \code{list} of length 13.
+An object of class \code{list} of length 17.
 }
 \usage{
 MetroPalettes
 }
 \description{
-Use names(MetPalettes) to return all possible palette names. Current choices are:
-\code{Paris}, and \code{Madrid}.
+Use \code{names(MetroPalettes)} to return all possible palette names.
 Use \code{\link{metro.brewer}} to construct palettes.
 }
 \keyword{datasets}

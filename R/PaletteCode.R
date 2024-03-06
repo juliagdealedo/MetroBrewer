@@ -3,8 +3,7 @@
 
 #' Complete list of palettes.
 #'
-#' Use names(MetPalettes) to return all possible palette names. Current choices are:
-#' \code{Paris}, and \code{Madrid}.
+#' Use \code{names(MetroPalettes)} to return all possible palette names.
 #' Use \code{\link{metro.brewer}} to construct palettes.
 #'
 #' @export
@@ -126,17 +125,14 @@
 
 # Function for generating palettes
 
-#' Met Palette Generator
+#' Metro Palette Generator
 #'
-#' Color palettes inspired by works at The Metropolitan Museum of Art. Complete list of palette colors
-#' and the works that inspired them can be found \href{https://github.com/BlakeRMills/MetBrewer}{on Github}.
-#' Use \code{\link{colorblind.friendly.met}} to check whether palettes are colorblind-friendly.
+#' Color palettes inspired by subway and train maps. Complete palette colors and
+#' the maps that inspired them can be found \href{https://github.com/juliagdealedo/MetroBrewer}{on Github}.
 #'
 #' @param palette_name Name of Palette. Choices are:
 #' @param n Number of desired colors. If number of requested colors is beyond the scope of the palette,
 #' colors are automatically interpolated. If n is not provided, the length of the palette is used.
-#' @param type Either "continuous" or "discrete". Use continuous if you want to automatically
-#' interpolate between colors.
 #' @param direction Sets order of colors. Default palette is 1. If direction is -1, palette color order is reversed
 #' @param override_order Colors are picked from palette to maximize readability and aesthetics. This means
 #' that colors are not always selected in sequential order from the full palette. If override_order is set to TRUE,
@@ -150,18 +146,7 @@
 #'
 #' metro.brewer("Sydney", 4, override_order=TRUE)
 #'
-#' library(ggplot2)
-#' ggplot(data=iris, aes(x=Species, y=Petal.Length, fill=Species)) +
-#' geom_violin() +
-#' scale_fill_manual(values=metro.brewer("London", 3))
 #'
-#' ggplot(data=iris, aes(x=Sepal.Length, y=Sepal.Width, color=Species)) +
-#' geom_point(size=2) +
-#' scale_color_manual(values=metro.brewer("Barcelona", 3))
-#'
-#' ggplot(data=iris, aes(x=Species, y=Sepal.Width, color=Sepal.Width)) +
-#' geom_point(size=3) +
-#' scale_color_gradientn(colors=metto.brewer("Istanbul"))
 #' @keywords colors
 #' @export
 metro.brewer <- function(palette_name, n, direction = c(1, -1), override_order=FALSE, return_hex=FALSE) {
@@ -220,11 +205,12 @@ metro.brewer <- function(palette_name, n, direction = c(1, -1), override_order=F
   structure(out, class = "palette", name = palette_name)
 }
 
+
 # Function for printing palette
 
-#' @export
 #' @importFrom grDevices rgb
 #' @importFrom graphics rect par image text
+#' @export
 
 print.palette <- function(x, ...) {
   n <- length(x)

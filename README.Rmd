@@ -66,8 +66,8 @@ height <-NULL
 width <- NULL
 
 for (city in cities){
-  city.un <-unique(stringr::word(city, 1, sep="_"))
-  map.pos <- grep(city.un, list.files("PaletteImages/citymaps"))
+  # city.un <-unique(stringr::word(city, 1, sep="_"))
+  map.pos <- grep(city, list.files("PaletteImages/citymaps"))
   maps[which(cities == city)] <- paste0("PaletteImages/citymaps/", list.files("PaletteImages/citymaps")[map.pos])
   if (file.exists(paste0("PaletteImages/palettes/", city, ".png"))) {next}
   dimension <- as.matrix(dim(imager::load.image(maps[which(cities == city)])))

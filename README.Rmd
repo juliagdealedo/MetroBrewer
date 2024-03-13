@@ -62,24 +62,26 @@ cities <- sort(cities)
 ```{r get maps, echo=F}
 maps <- vector("character", length = length(cities))
 
+cities_new<-NULL
 height <-NULL
 width <- NULL
 
 for (city in cities){
   # city.un <-unique(stringr::word(city, 1, sep="_"))
-  map.pos <- grep(city, list.files("PaletteImages/citymaps"))
+  map.pos <- grep(paste0(city, "\\."), list.files("PaletteImages/citymaps"))
   maps[which(cities == city)] <- paste0("PaletteImages/citymaps/", list.files("PaletteImages/citymaps")[map.pos])
   if (file.exists(paste0("PaletteImages/palettes/", city, ".png"))) {next}
   dimension <- as.matrix(dim(imager::load.image(maps[which(cities == city)])))
-  height[city] <- dimension[1]
-  width[city] <- dimension[2]
+  cities_new[which(cities == city)] <- city
+  height[which(cities == city)] <- dimension[1]
+  width[which(cities == city)] <- dimension[2]
 }
 ratio <- height/width
 heigth_low <- 500/ratio
 ```
 
 ```{r create cols, echo=F, eval=T}
-cities_new <- cities[cities %in% names(heigth_low)]
+
 for(i in seq_along(cities_new)){
 cols <- paste0("PaletteImages/palettes/", cities_new[i], ".png")
 if(!file.exists(cols)){

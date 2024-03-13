@@ -33,18 +33,6 @@ library(MetroBrewer)
 
 ## Palettes
 
-    #> Warning in maps[which(cities == city)] <- paste0("PaletteImages/citymaps/", :
-    #> número de items para para sustituir no es un múltiplo de la longitud del
-    #> reemplazo
-
-    #> Warning in maps[which(cities == city)] <- paste0("PaletteImages/citymaps/", :
-    #> número de items para para sustituir no es un múltiplo de la longitud del
-    #> reemplazo
-
-    #> Warning in maps[which(cities == city)] <- paste0("PaletteImages/citymaps/", :
-    #> número de items para para sustituir no es un múltiplo de la longitud del
-    #> reemplazo
-
 ## All palettes
 
 Colors are arranged by the metro lines number.

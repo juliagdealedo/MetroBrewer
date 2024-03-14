@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Metro Brewer <img src="PaletteImages/logo.png" align="right" width="270"/>
+# Metro Brewer <img src="PaletteImages/logo.png" align="right" width="300"/>
 
 `r knitr::asis_output("\U1F509")` Next stop... MetroBrewer! `r knitr::asis_output("\U1F689")`.
 

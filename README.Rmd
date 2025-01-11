@@ -16,7 +16,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Metro Brewer <img src="PaletteImages/logo.png" align="right" width="300"/>
+# Metro Brewer 
+
+```{r, echo=FALSE}
+knitr::include_graphics("PaletteImages/image_metrobrewer.png")
+```
 
 `r knitr::asis_output("\U1F509")` Next stop... MetroBrewer! `r knitr::asis_output("\U1F689")`.
 
@@ -90,6 +94,9 @@ if(!file.exists(cols)){
   dev.off()
 }
 }
+
+  
+  
 ```
 
 ```{r get cols, echo=F}

@@ -73,6 +73,7 @@ width <- NULL
 for (city in cities){
   # city.un <-unique(stringr::word(city, 1, sep="_"))
   map.pos <- grep(paste0(city, "\\."), list.files("PaletteImages/citymaps"))
+  if (length(map.pos) == 0) {next}
   maps[which(cities == city)] <- paste0("PaletteImages/citymaps/", list.files("PaletteImages/citymaps")[map.pos])
   if (file.exists(paste0("PaletteImages/palettes/", city, ".png"))) {next}
   dimension <- as.matrix(dim(imager::load.image(maps[which(cities == city)])))
@@ -136,7 +137,8 @@ knitr::include_graphics(cols_sq)
 
 ## Maps and their colours
 ```{r plot map&col, echo=F, eval=T, out.width="50%", out.height="80%"}
-mix <- c(rbind(maps,cols))
+has_map <- !is.na(maps) & nzchar(maps)
+mix <- c(rbind(maps[has_map], cols[has_map]))
 knitr::include_graphics(mix)
 
 ```

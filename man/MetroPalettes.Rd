@@ -5,7 +5,7 @@
 \alias{MetroPalettes}
 \title{Complete list of palettes.}
 \format{
-An object of class \code{list} of length 17.
+An object of class \code{list} of length 25.
 }
 \usage{
 MetroPalettes
